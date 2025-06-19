@@ -1,3 +1,2 @@
 export const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5050/jsonrpc';
-
-console.log(import.meta.env.VITE_API_URL)
+export const socketUrl = import.meta.env.SOCKET_API_URL || 'http://localhost:3000';
