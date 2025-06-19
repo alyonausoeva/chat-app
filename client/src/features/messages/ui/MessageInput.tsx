@@ -2,7 +2,7 @@ import { selectUser } from 'app/store';
 import { setLastMessage } from 'features/messages';
 import { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { baseUrl, DISABLED_BUTTON, INPUT, PRIMIRY_BUTTON } from 'shared/constants';
+import { baseUrl, DISABLED_BUTTON, INPUT, PRIMIRY_BUTTON, socketUrl } from 'shared/constants';
 import { Chat, JsonRpcRequest, JsonRpcResponse, Message } from 'shared/types';
 import { io, Socket } from 'socket.io-client';
 
@@ -25,7 +25,7 @@ export const MessageInput = ({
   const [socket, setSocket] = useState<Socket | null>(null);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3000');
+    const newSocket = io(socketUrl);
     setSocket(newSocket);
 
     return () => {
