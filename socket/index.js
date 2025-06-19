@@ -2,7 +2,7 @@ const { Server } = require("socket.io");
 
 const io = new Server({
   cors: {
-    origin: "http://localhost:5173",
+    origin: process.env.VITE_CLIENT_URL || "http://localhost:5173",
     methods: ["GET", "POST"]
   }
 });
